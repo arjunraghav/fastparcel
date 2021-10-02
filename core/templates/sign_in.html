@@ -9,11 +9,21 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="text-center text-uppercase mb-3">
-                        <b>Customer</b>
+                        <b>
+                            {% if request.GET.next != '/courier/' %}
+                            Customer
+                            {% else %}
+                            Courier
+                            {% endif %}
+                        </b>
                     </h4>
                     <form method="POST">
                         {% csrf_token %}
-                        {% bootstrap_form form %}
+                        {% bootstrap_form_errors form %}
+                        {% bootstrap_label "Email" %}
+                        {% bootstrap_field form.username show_label=False placeholder="Email" %}
+                        {% bootstrap_label "Password" %}
+                        {% bootstrap_field form.password show_label=False placeholder="Password" %}
                         <button class="btn btn-warning btn-block">Sign in</button>
                     </form>
                 </div>
