@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 
+from . import forms
+
 # Create your views here.
 def home(request):
     return render(request, template_name='home.html')
@@ -17,5 +19,7 @@ def courier_page(request):
 
 
 def sign_up(request):
-    return render(request, template_name='sign_up.html')
+    form = forms.SignUpForm()
+    context = {"form": form}
+    return render(request, template_name='sign_up.html', context=context)
     
