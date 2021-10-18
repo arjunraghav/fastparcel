@@ -16,6 +16,9 @@
                         <p class="text-center mt-3">Already have and account?
                             <a href="/sign-in/?next={{ request.Get.next }}">Sign In</a>
                         </p>
+                        <hr>
+                        <a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}"
+                            class="btn btn-outline-primary">Sign in with facebook</a>
                     </form>
                 </div>
             </div>

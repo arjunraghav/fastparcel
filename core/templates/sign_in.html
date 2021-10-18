@@ -28,11 +28,16 @@
                         <p class="text-center mt-3">Dont have and account?
                             <a href="/sign-up/?next={{ request.Get.next }}">Sign Up</a>
                         </p>
+                        <hr>
+                        <a href="{% url 'social:begin' 'facebook' %}?next={{ request.GET.next }}"
+                            class="btn btn-outline-primary">Sign in with facebook</a>
+                        <hr>
+                            <a href="{% url 'social:begin' 'google-oauth2' %}?next={{ request.GET.next }}">Login with Google</a>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
-    
+
 {% endblock content %}
